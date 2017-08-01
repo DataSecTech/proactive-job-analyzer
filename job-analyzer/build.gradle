@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+project.archivesBaseName = 'proactive-job-analyzer'
+group = 'com.datasectech.jobanalyzer'
+version = sdlJobAnalyzerVersion
+
+
+jar {
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
