@@ -1,0 +1,20 @@
+plugins {
+    id 'java-library'
+}
+
+project.archivesBaseName = 'proactive-job-analyzer-code-builder'
+group = 'com.datasectech.jobanalyzer'
+version = sdlJobAnalyzerVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':job-analyzer')
+
+    implementation("org.apache.logging.log4j:log4j-api:$log4j2Version")
+    implementation("org.apache.logging.log4j:log4j-core:$log4j2Version")
+
+    testImplementation 'junit:junit:4.13.2'
+}

@@ -1,0 +1,6 @@
+- [] Replace maven with gradle for downloading dependencies
+- [] Remove local `./gradlew` build with multi-stage `Dockerfile`
+  - Use one more step to build the project and copy jars from that stage
+- [] Implement gradle task to build docker containers
+- [] Implement gradle task to generate initial configurations
+- [] Add scripts to generate and restore mysql dump

@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+project.archivesBaseName = 'proactive-job-analyzer-cli'
+group = 'com.datasectech.jobanalyzer'
+version = sdlJobAnalyzerVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("info.picocli:picocli:$picocliVersion")
+    annotationProcessor("info.picocli:picocli-codegen:$picocliVersion")
+
+    implementation project(':job-analyzer')
+    implementation project(':code-builder')
+
+    implementation("org.apache.logging.log4j:log4j-api:$log4j2Version")
+    implementation("org.apache.logging.log4j:log4j-core:$log4j2Version")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
+
+    testImplementation('junit:junit:4.13.2')
+}
+
+application {
+    mainClass = System.getProperty("mainClass", "com.datasectech.jobanalyzer.JobAnalyzerApp")
+}
+
+jar {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    manifest {
+        attributes(
+                'Main-Class': 'com.datasectech.jobanalyzer.cli.JobAnalyzerApp'
+        )
+    }
+}

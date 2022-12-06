@@ -1,0 +1,6 @@
+rootProject.name = 'proactive-job-analyzer'
+
+include 'job-analyzer'
+include 'cli'
+include 'webservice'
+include 'code-builder'

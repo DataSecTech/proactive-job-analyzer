@@ -1,0 +1,18 @@
+subprojects {
+
+    repositories {
+        mavenCentral()
+    }
+
+    configurations {
+        provided
+    }
+
+    ext {
+        sdlJobAnalyzerVersion = '0.1.0-SNAPSHOT'
+
+        log4j2Version = '2.18.0'
+        jacksonVersion = '2.13.4'
+        picocliVersion = '4.6.3'
+    }
+}

@@ -185,6 +185,4 @@ temp/
 # Temporary automation scripts
 cmd-*.sh
 *.env
-application.properties
-
 data/
